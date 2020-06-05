@@ -1,0 +1,52 @@
+{
+  "Game_X_1": {
+    "Bucket_A": true,
+    "Bucket_B": false,
+    "Bucket_C": false
+  },
+  "Game_X_2": {
+    "Bucket_A": true,
+    "Bucket_B": false,
+    "Bucket_C": false
+  },
+  "Game_X_3": {
+    "Bucket_A": true,
+    "Bucket_B": false,
+    "Bucket_C": false
+  },
+  "Game_Y_1": {
+    "Bucket_A": false,
+    "Bucket_B": false,
+    "Bucket_C": false
+  },
+  "Game_Y_2": {
+    "Bucket_A": false,
+    "Bucket_B": false,
+    "Bucket_C": false
+  },
+  "Game_Y_3": {
+    "Bucket_A": false,
+    "Bucket_B": false,
+    "Bucket_C": false
+  },
+  "Game_Z_1": {
+    "Bucket_A": false,
+    "Bucket_B": false,
+    "Bucket_C": false
+  },
+  "Game_Z_2": {
+    "Bucket_A": false,
+    "Bucket_B": false,
+    "Bucket_C": false
+  },
+  "Game_Z_3": {
+    "Bucket_A": false,
+    "Bucket_B": false,
+    "Bucket_C": false
+  },
+  "Game_Z_4": {
+    "Bucket_A": false,
+    "Bucket_B": false,
+    "Bucket_C": false
+  }
+}

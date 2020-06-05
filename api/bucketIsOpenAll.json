@@ -1,0 +1,47 @@
+{
+  "Bucket_A_1": {
+    "GameType_X": true,
+    "GameType_Y": true,
+    "GameType_Z": true
+  },
+  "Bucket_A_2": {
+    "GameType_X": true,
+    "GameType_Y": false,
+    "GameType_Z": false
+  },
+  "Bucket_A_3": {
+    "GameType_X": true,
+    "GameType_Y": false,
+    "GameType_Z": false
+  },
+  "Bucket_A_4": {
+    "GameType_X": false,
+    "GameType_Y": false,
+    "GameType_Z": false
+  },
+  "Bucket_B_1": {
+    "GameType_X": false,
+    "GameType_Y": false,
+    "GameType_Z": false
+  },
+  "Bucket_B_2": {
+    "GameType_X": false,
+    "GameType_Y": false,
+    "GameType_Z": false
+  },
+  "Bucket_B_3": {
+    "GameType_X": false,
+    "GameType_Y": false,
+    "GameType_Z": false
+  },
+  "Bucket_C_1": {
+    "GameType_X": false,
+    "GameType_Y": false,
+    "GameType_Z": false
+  },
+  "Bucket_C_2": {
+    "GameType_X": false,
+    "GameType_Y": false,
+    "GameType_Z": false
+  }
+}

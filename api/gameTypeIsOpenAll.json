@@ -1,0 +1,17 @@
+{
+  "GameType_X": {
+    "Bucket_A": true,
+    "Bucket_B": false,
+    "Bucket_C": false
+  },
+  "GameType_Y": {
+    "Bucket_A": false,
+    "Bucket_B": false,
+    "Bucket_C": false
+  },
+  "GameType_Z": {
+    "Bucket_A": false,
+    "Bucket_B": false,
+    "Bucket_C": false
+  }
+}

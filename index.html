@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>http-vue-loader test</title>
+
+  <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/http-vue-loader"></script>
+
+</head>
+<body>
+  
+  <h1>http-vue-loader test</h1>
+
+  <div id="app1">
+    {{ msg }}
+    <test-component/>
+  </div>
+
+  
+
+
+  <script type="text/javascript">
+    Vue.use(httpVueLoader)
+    const app = new Vue({
+      el: "#app1",
+      data() {
+        return {
+          msg: '123'
+        }
+      },
+      components: {
+        'test-component': httpVueLoader('TestComponent.vue')
+      }
+    })
+  </script>
+</body>
+</html>

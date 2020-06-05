@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Game_X_1",
+    "type": "GameType_X"
+  },
+  {
+    "name": "Game_X_2",
+    "type": "GameType_X"
+  },
+  {
+    "name": "Game_X_3",
+    "type": "GameType_X"
+  },
+  {
+    "name": "Game_Y_1",
+    "type": "GameType_Y"
+  },
+  {
+    "name": "Game_Y_2",
+    "type": "GameType_Y"
+  },
+  {
+    "name": "Game_Y_3",
+    "type": "GameType_Y"
+  },
+  {
+    "name": "Game_Z_1",
+    "type": "GameType_Z"
+  },
+  {
+    "name": "Game_Z_2",
+    "type": "GameType_Z"
+  },
+  {
+    "name": "Game_Z_3",
+    "type": "GameType_Z"
+  },
+  {
+    "name": "Game_Z_4",
+    "type": "GameType_Z"
+  }
+]

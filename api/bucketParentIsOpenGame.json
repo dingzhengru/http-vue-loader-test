@@ -1,0 +1,38 @@
+{
+  "Bucket_A": {
+    "Game_X_1": true,
+    "Game_X_2": true,
+    "Game_X_3": true,
+    "Game_Y_1": false,
+    "Game_Y_2": false,
+    "Game_Y_3": false,
+    "Game_Z_1": false,
+    "Game_Z_2": false,
+    "Game_Z_3": false,
+    "Game_Z_4": false
+  },
+  "Bucket_B": {
+    "Game_X_1": false,
+    "Game_X_2": false,
+    "Game_X_3": false,
+    "Game_Y_1": false,
+    "Game_Y_2": false,
+    "Game_Y_3": false,
+    "Game_Z_1": false,
+    "Game_Z_2": false,
+    "Game_Z_3": false,
+    "Game_Z_4": false
+  },
+  "Bucket_C": {
+    "Game_X_1": false,
+    "Game_X_2": false,
+    "Game_X_3": false,
+    "Game_Y_1": false,
+    "Game_Y_2": false,
+    "Game_Y_3": false,
+    "Game_Z_1": false,
+    "Game_Z_2": false,
+    "Game_Z_3": false,
+    "Game_Z_4": false
+  }
+}

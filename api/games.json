@@ -1,0 +1,47 @@
+[
+  {
+    "name": "GameType_X",
+    "children": [
+      {
+        "name": "Game_X_1"
+      },
+      {
+        "name": "Game_X_2"
+      },
+      {
+        "name": "Game_X_3"
+      }
+    ]
+  },
+  {
+    "name": "GameType_Y",
+    "children": [
+      {
+        "name": "Game_Y_1"
+      },
+      {
+        "name": "Game_Y_2"
+      },
+      {
+        "name": "Game_Y_3"
+      }
+    ]
+  },
+  {
+    "name": "GameType_Z",
+    "children": [
+      {
+        "name": "Game_Z_1"
+      },
+      {
+        "name": "Game_Z_2"
+      },
+      {
+        "name": "Game_Z_3"
+      },
+      {
+        "name": "Game_Z_4"
+      }
+    ]
+  }
+]
