@@ -105,19 +105,20 @@
 
 <script>
 
-import VueJsonPretty  from 'vue-json-pretty'
+// import VueJsonPretty  from 'vue-json-pretty'
 
-import buckets from '@/api/buckets' // 分桶列表，單純列出分桶名
-import relationByBucket from '@/api/relationByBucket.json' // 詳細的分桶列表，將分桶內包含的遊戲也一併列出
-import bucketIsOpenAll from '@/api/bucketIsOpenAll' // 回傳子分桶是否全開放的資料
-import bucketParentIsOpenAll from '@/api/bucketParentIsOpenAll' // 回傳父分桶是否全開放的資料
-import bucketParentIsOpenGame from '@/api/bucketParentIsOpenGame' // 回傳父分桶是否全開放某遊戲
+// import buckets from '@/api/buckets' // 分桶列表，單純列出分桶名
+// import relationByBucket from '@/api/relationByBucket.json' // 詳細的分桶列表，將分桶內包含的遊戲也一併列出
+// import bucketIsOpenAll from '@/api/bucketIsOpenAll' // 回傳子分桶是否全開放的資料
+// import bucketParentIsOpenAll from '@/api/bucketParentIsOpenAll' // 回傳父分桶是否全開放的資料
+// import bucketParentIsOpenGame from '@/api/bucketParentIsOpenGame' // 回傳父分桶是否全開放某遊戲
 
-export default {
+
+console.log(123)
+
+module.exports = {
   name: 'GameOpenManageByBucket',
-  components: {
-    VueJsonPretty
-  },
+  components: {},
   data() {
     return {
       buckets: [],
@@ -131,12 +132,21 @@ export default {
       bucketParentIsOpenGame: {}
     }
   },
-  mounted() {
-    this.buckets = buckets
-    this.relationByBucket = relationByBucket
-    this.bucketIsOpenAll = bucketIsOpenAll
-    this.bucketParentIsOpenAll = bucketParentIsOpenAll
-    this.bucketParentIsOpenGame = bucketParentIsOpenGame
+  async mounted() {
+    const apiUrl = 'http://localhost:55555'
+
+    this.buckets = await $.getJSON(apiUrl + '/api/buckets.json')
+    this.relationByBucket = await $.getJSON(apiUrl + '/api/relationByBucket.json')
+    this.bucketIsOpenAll = await $.getJSON(apiUrl + '/api/bucketIsOpenAll.json')
+    this.bucketParentIsOpenAll = await $.getJSON(apiUrl + '/api/bucketParentIsOpenAll.json')
+    this.bucketParentIsOpenGame = await $.getJSON(apiUrl + '/api/bucketParentIsOpenGame.json')
+
+
+    // this.buckets = buckets
+    // this.relationByBucket = relationByBucket
+    // this.bucketIsOpenAll = bucketIsOpenAll
+    // this.bucketParentIsOpenAll = bucketParentIsOpenAll
+    // this.bucketParentIsOpenGame = bucketParentIsOpenGame
   },
   methods: {
     changeIsOpenAll(gameTypeObject, isOpenAll) {

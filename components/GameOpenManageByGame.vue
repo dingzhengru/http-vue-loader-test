@@ -100,38 +100,40 @@
 
 <script>
 
-import VueJsonPretty  from 'vue-json-pretty'
+// import VueJsonPretty  from 'vue-json-pretty'
 
-import games from '@/api/games' // 遊戲列表，單純列出分桶名
-import relationByGame from '@/api/relationByGame' // 詳細的遊戲列表，有此遊戲的分桶也列出
-import gameIsOpenAll from '@/api/gameIsOpenAll' // 回傳遊戲是否全開放的資料
-import gameTypeIsOpenAll from '@/api/gameTypeIsOpenAll' // 回傳遊戲類型是否全開放的資料
-import gameTypeIsOpenBucket from '@/api/gameTypeIsOpenBucket' // 回傳遊戲類型是否全開放某遊戲
+// import games from '@/api/games' // 遊戲列表，單純列出分桶名
+// import relationByGame from '@/api/relationByGame' // 詳細的遊戲列表，有此遊戲的分桶也列出
+// import gameIsOpenAll from '@/api/gameIsOpenAll' // 回傳遊戲是否全開放的資料
+// import gameTypeIsOpenAll from '@/api/gameTypeIsOpenAll' // 回傳遊戲類型是否全開放的資料
+// import gameTypeIsOpenBucket from '@/api/gameTypeIsOpenBucket' // 回傳遊戲類型是否全開放某遊戲
 
-export default {
+module.exports = {
   name: 'GameOpenManageByBucket',
-  components: {
-    VueJsonPretty
-  },
+  components: {},
   data() {
     return {
       games: [],
       relationByGame: [],
       gameIsOpenAll: {},
       gameTypeIsOpenAll: {},
+      gameTypeIsOpenBucket: {},
       selectedGame: {},
       selectedGameBuckets: {},
       selectedGameType: {},
-      selectedGameTypeBuckets: {},
-      gameTypeIsOpenBucket: {}
+      selectedGameTypeBuckets: {}
     }
   },
-  mounted() {
-    this.games = games
-    this.relationByGame = relationByGame
-    this.gameIsOpenAll = gameIsOpenAll
-    this.gameTypeIsOpenAll = gameTypeIsOpenAll
-    this.gameTypeIsOpenBucket = gameTypeIsOpenBucket
+  async mounted() {
+    const apiUrl = 'http://localhost:55555'
+
+    console.log(123)
+
+    this.games = await $.getJSON(apiUrl + '/api/games.json')
+    this.relationByGame = await $.getJSON(apiUrl + '/api/relationByGame.json')
+    this.gameIsOpenAll = await $.getJSON(apiUrl + '/api/gameIsOpenAll.json')
+    this.gameTypeIsOpenAll = await $.getJSON(apiUrl + '/api/gameTypeIsOpenAll.json')
+    this.gameTypeIsOpenBucket = await $.getJSON(apiUrl + '/api/gameTypeIsOpenBucket.json')
   },
   methods: {
     changeIsOpenAll(bucket, isOpenAll) {
@@ -191,9 +193,6 @@ export default {
 </script>
 
 <style scoped>
-/*
-  @import '@/style/GameOpenManage.scss';
-*/
 
 /*
   左右區塊

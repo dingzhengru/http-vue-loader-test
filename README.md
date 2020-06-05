@@ -9,4 +9,4 @@ npm start
 
 ## 注意點
 * component 標籤的命名必須是小寫搭配 "-"，ex: ```{ 'my-component': './TestComponent' }```
-
+* export default {} 要改成 module.exports = {}
