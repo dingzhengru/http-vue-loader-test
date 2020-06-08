@@ -4,8 +4,9 @@
     "children": [
       {
         "name": "Game_X_1",
-        "bucket": {
-          "Bucket_A": {
+        "buckets": [
+          {
+            "name": "Bucket_A",
             "children": [
               {
                 "name": "Bucket_A_1",
@@ -13,7 +14,8 @@
               }
             ]
           },
-          "Bucket_B": {
+          {
+            "name": "Bucket_B",
             "children": [
               {
                 "name": "Bucket_B_1",
@@ -25,7 +27,8 @@
               }
             ]
           },
-          "Bucket_C": {
+          {
+            "name": "Bucket_C",
             "children": [
               {
                 "name": "Bucket_C_1",
@@ -33,12 +36,13 @@
               }
             ]
           }
-        }
+        ]
       },
       {
         "name": "Game_X_2",
-        "bucket": {
-          "Bucket_A": {
+        "buckets": [
+          {
+            "name": "Bucket_A",
             "children": [
               {
                 "name": "Bucket_A_2",
@@ -46,7 +50,8 @@
               }
             ]
           },
-          "Bucket_B": {
+          {
+            "name": "Bucket_B",
             "children": [
               {
                 "name": "Bucket_B_1",
@@ -58,7 +63,8 @@
               }
             ]
           },
-          "Bucket_C": {
+          {
+            "name": "Bucket_C",
             "children": [
               {
                 "name": "Bucket_C_1",
@@ -66,12 +72,13 @@
               }
             ]
           }
-        }
+        ]
       },
       {
         "name": "Game_X_3",
-        "bucket": {
-          "Bucket_A": {
+        "buckets": [
+          {
+            "name": "Bucket_A",
             "children": [
               {
                 "name": "Bucket_A_3",
@@ -79,7 +86,8 @@
               }
             ]
           },
-          "Bucket_B": {
+          {
+            "name": "Bucket_B",
             "children": [
               {
                 "name": "Bucket_B_1",
@@ -91,7 +99,8 @@
               }
             ]
           },
-          "Bucket_C": {
+          {
+            "name": "Bucket_C",
             "children": [
               {
                 "name": "Bucket_C_2",
@@ -99,18 +108,18 @@
               }
             ]
           }
-        }
+        ]
       }
     ]
   },
-
   {
     "name": "GameType_Y",
     "children": [
       {
         "name": "Game_Y_1",
-        "bucket": {
-          "Bucket_A": {
+        "buckets": [
+          {
+            "name": "Bucket_A",
             "children": [
               {
                 "name": "Bucket_A_1",
@@ -118,7 +127,8 @@
               }
             ]
           },
-          "Bucket_B": {
+          {
+            "name": "Bucket_B",
             "children": [
               {
                 "name": "Bucket_B_1",
@@ -130,7 +140,8 @@
               }
             ]
           },
-          "Bucket_C": {
+          {
+            "name": "Bucket_C",
             "children": [
               {
                 "name": "Bucket_C_1",
@@ -138,12 +149,13 @@
               }
             ]
           }
-        }
+        ]
       },
       {
         "name": "Game_Y_2",
-        "bucket": {
-          "Bucket_A": {
+        "buckets": [
+          {
+            "name": "Bucket_A",
             "children": [
               {
                 "name": "Bucket_A_2",
@@ -151,7 +163,8 @@
               }
             ]
           },
-          "Bucket_B": {
+          {
+            "name": "Bucket_B",
             "children": [
               {
                 "name": "Bucket_B_1",
@@ -163,7 +176,8 @@
               }
             ]
           },
-          "Bucket_C": {
+          {
+            "name": "Bucket_C",
             "children": [
               {
                 "name": "Bucket_C_1",
@@ -171,12 +185,13 @@
               }
             ]
           }
-        }
+        ]
       },
       {
         "name": "Game_Y_3",
-        "bucket": {
-          "Bucket_A": {
+        "buckets": [
+          {
+            "name": "Bucket_A",
             "children": [
               {
                 "name": "Bucket_A_3",
@@ -184,7 +199,8 @@
               }
             ]
           },
-          "Bucket_B": {
+          {
+            "name": "Bucket_B",
             "children": [
               {
                 "name": "Bucket_B_1",
@@ -196,7 +212,8 @@
               }
             ]
           },
-          "Bucket_C": {
+          {
+            "name": "Bucket_C",
             "children": [
               {
                 "name": "Bucket_C_2",
@@ -204,18 +221,18 @@
               }
             ]
           }
-        }
+        ]
       }
     ]
   },
-
   {
     "name": "GameType_Z",
     "children": [
       {
         "name": "Game_Z_1",
-        "bucket": {
-          "Bucket_A": {
+        "buckets": [
+          {
+            "name": "Bucket_A",
             "children": [
               {
                 "name": "Bucket_A_1",
@@ -223,7 +240,8 @@
               }
             ]
           },
-          "Bucket_B": {
+          {
+            "name": "Bucket_B",
             "children": [
               {
                 "name": "Bucket_B_2",
@@ -235,7 +253,8 @@
               }
             ]
           },
-          "Bucket_C": {
+          {
+            "name": "Bucket_C",
             "children": [
               {
                 "name": "Bucket_C_1",
@@ -243,12 +262,13 @@
               }
             ]
           }
-        }
+        ]
       },
       {
         "name": "Game_Z_2",
-        "bucket": {
-          "Bucket_A": {
+        "buckets": [
+          {
+            "name": "Bucket_A",
             "children": [
               {
                 "name": "Bucket_A_2",
@@ -256,7 +276,8 @@
               }
             ]
           },
-          "Bucket_B": {
+          {
+            "name": "Bucket_B",
             "children": [
               {
                 "name": "Bucket_B_2",
@@ -268,7 +289,8 @@
               }
             ]
           },
-          "Bucket_C": {
+          {
+            "name": "Bucket_C",
             "children": [
               {
                 "name": "Bucket_C_1",
@@ -276,12 +298,13 @@
               }
             ]
           }
-        }
+        ]
       },
       {
         "name": "Game_Z_3",
-        "bucket": {
-          "Bucket_A": {
+        "buckets": [
+          {
+            "name": "Bucket_A",
             "children": [
               {
                 "name": "Bucket_A_3",
@@ -289,7 +312,8 @@
               }
             ]
           },
-          "Bucket_B": {
+          {
+            "name": "Bucket_B",
             "children": [
               {
                 "name": "Bucket_B_2",
@@ -301,7 +325,8 @@
               }
             ]
           },
-          "Bucket_C": {
+          {
+            "name": "Bucket_C",
             "children": [
               {
                 "name": "Bucket_C_2",
@@ -309,12 +334,13 @@
               }
             ]
           }
-        }
+        ]
       },
       {
         "name": "Game_Z_4",
-        "bucket": {
-          "Bucket_A": {
+        "buckets": [
+          {
+            "name": "Bucket_A",
             "children": [
               {
                 "name": "Bucket_A_4",
@@ -322,7 +348,8 @@
               }
             ]
           },
-          "Bucket_B": {
+          {
+            "name": "Bucket_B",
             "children": [
               {
                 "name": "Bucket_B_2",
@@ -334,7 +361,8 @@
               }
             ]
           },
-          "Bucket_C": {
+          {
+            "name": "Bucket_C",
             "children": [
               {
                 "name": "Bucket_C_2",
@@ -342,7 +370,7 @@
               }
             ]
           }
-        }
+        ]
       }
     ]
   }

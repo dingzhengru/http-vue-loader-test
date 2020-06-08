@@ -1,8 +1,5 @@
 <template>
 <div id="GameOpenManageByBucket" class="game-open-manage">
-  
-  <!-- <p>{{ selectedBucketGames }}</p> -->
-  <!-- <p>{{ selectedParentBucketGames }}</p> -->
 
   <div class="bucket-wrapper wrapper">
     <div class="buckets left-block block text-center">
@@ -36,19 +33,17 @@
     </div>
 
     <div class="game-wrapper right-block block text-center">
-
       <h2 class="game-title title">遊戲</h2>
-
+      
       <!-- 選取子分桶時 -->
-
       <div class="games right-block-inner text-left" v-for="(gameTypeObject, type) in selectedBucketGames" :key="type">
         <h3 class="sub-title">
           <input 
             type="checkbox" 
-            v-model="bucketIsOpenAll[selectedBucket.name][type]" 
-            @change="changeIsOpenAll(gameTypeObject, bucketIsOpenAll[selectedBucket.name][type])"
+            v-model="bucketIsOpenAll[selectedBucket.name][gameTypeObject.name]" 
+            @change="changeBucketIsOpenAll(gameTypeObject, bucketIsOpenAll[selectedBucket.name][gameTypeObject.name])"
           >
-          {{ type }}
+          {{ gameTypeObject.name }}
         </h3>
         <div class="game-item-block item-block">
           <div class="game-item item" v-for="game in gameTypeObject.children" :key="game.name">
@@ -59,60 +54,22 @@
       </div>
 
       <!-- 選取父分桶時 -->
-      <div class="games right-block-inner text-left" v-for="(gameTypeObject, type) in selectedParentBucketGames" :key="type">
+      <div class="games right-block-inner text-left" v-for="gameTypeObject in selectedParentBucketGames" :key="gameTypeObject.name">
         <h3 class="sub-title">
-          <input 
-            type="checkbox" 
-            v-model="bucketParentIsOpenAll[selectedParentBucket.name][type]" 
-            @change="changeIsOpenAll(gameTypeObject, bucketParentIsOpenAll[selectedParentBucket.name][type])"
-          > 
-          {{ type }}
+          {{ gameTypeObject.name }}
         </h3>
         <div class="game-item-block item-block">
           <div class="game-item item" v-for="(game, index) in gameTypeObject.children" :key="index">
-            <input type="checkbox" 
-              v-model="bucketParentIsOpenGame[selectedParentBucket.name][game]" 
-              :disabled="bucketParentIsOpenAll[selectedParentBucket.name][type]"
-            > 
-            <!-- {{ `${ game.name } (${ game.bucket })` }} -->
             {{ game }}
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  <!-- <div class="json-data">
-    <div class="one-quarter">
-      <h3>分桶列表，單純列出分桶名</h3>
-      <vue-json-pretty :data="buckets" />
-    </div>
-    <div class="one-quarter">
-      <h3>詳細的分桶列表，將分桶內包含的遊戲也一併列出</h3>
-      <vue-json-pretty :data="relationByBucket" />
-    </div>
-    <div class="one-quarter">
-      <h3>selectedBucketGames</h3>
-      <vue-json-pretty :data="selectedBucketGames" />
-    </div>
-    <div class="one-quarter">
-      <h3>selectedParentBucketGames</h3>
-      <vue-json-pretty :data="selectedParentBucketGames" />
-    </div>
-  </div> -->
 </div>
 </template>
 
 <script>
-
-// import VueJsonPretty  from 'vue-json-pretty'
-
-// import buckets from '@/api/buckets' // 分桶列表，單純列出分桶名
-// import relationByBucket from '@/api/relationByBucket.json' // 詳細的分桶列表，將分桶內包含的遊戲也一併列出
-// import bucketIsOpenAll from '@/api/bucketIsOpenAll' // 回傳子分桶是否全開放的資料
-// import bucketParentIsOpenAll from '@/api/bucketParentIsOpenAll' // 回傳父分桶是否全開放的資料
-// import bucketParentIsOpenGame from '@/api/bucketParentIsOpenGame' // 回傳父分桶是否全開放某遊戲
-
 
 module.exports = {
   name: 'GameOpenManageByBucket',
@@ -122,12 +79,10 @@ module.exports = {
       buckets: [],
       relationByBucket: [],
       bucketIsOpenAll: {},
-      bucketParentIsOpenAll: {},
       selectedBucket: {},
       selectedBucketGames: {},
       selectedParentBucket: {},
-      selectedParentBucketGames: {},
-      bucketParentIsOpenGame: {}
+      selectedParentBucketGames: {}
     }
   },
   async mounted() {
@@ -136,75 +91,56 @@ module.exports = {
     this.buckets = await $.getJSON(apiUrl + '/api/buckets.json')
     this.relationByBucket = await $.getJSON(apiUrl + '/api/relationByBucket.json')
     this.bucketIsOpenAll = await $.getJSON(apiUrl + '/api/bucketIsOpenAll.json')
-    this.bucketParentIsOpenAll = await $.getJSON(apiUrl + '/api/bucketParentIsOpenAll.json')
-    this.bucketParentIsOpenGame = await $.getJSON(apiUrl + '/api/bucketParentIsOpenGame.json')
 
-
-    // this.buckets = buckets
-    // this.relationByBucket = relationByBucket
-    // this.bucketIsOpenAll = bucketIsOpenAll
-    // this.bucketParentIsOpenAll = bucketParentIsOpenAll
-    // this.bucketParentIsOpenGame = bucketParentIsOpenGame
+    this.selectedBucket = this.relationByBucket[0].children[0]
+    this.convertSelectedBucketGames()
   },
   methods: {
-    changeIsOpenAll(gameTypeObject, isOpenAll) {
+    changeBucketIsOpenAll(gameTypeObject, isOpenAll) {
       if(isOpenAll) {
-        // gameTypeObject.children.forEach(item => item.isOpen = true)
-        gameTypeObject.children.forEach(item => {
-          this.bucketParentIsOpenGame[this.selectedParentBucket.name][item] = true
-        })
+        gameTypeObject.children.forEach(item => item.isOpen = true)
+      } else {
+        gameTypeObject.children.forEach(item => item.isOpen = false)
       }
     },
     convertSelectedBucketGames() {
-
       this.selectedParentBucket = {}
       this.selectedParentBucketGames = {}
 
       const selectedBucket = JSON.parse(JSON.stringify(this.selectedBucket))
-      let item = selectedBucket.game || {}
+      let items = selectedBucket.games || []
 
-      this.selectedBucketGames = item
-
-      return item
+      this.selectedBucketGames = items
+      return items
     },
     convertSelectedParentBucketGames() {
-
       this.selectedBucket = {}
       this.selectedBucketGames = {}
 
       const selectedParentBucket = JSON.parse(JSON.stringify(this.selectedParentBucket))
-      let item = {}
-      let isOpenAll = false
-
-      
+      let items = []
 
       for(let bucket of selectedParentBucket.children) {
+        for(let gameTypeObject of bucket.games) {
 
-        let bucketGameList = []
-
-        for(let type in bucket.game) {
-          if(item[type] == undefined) {
-            item[type] = {}
-            item[type].children = []
+          // 創建初始的 gameType 的 object
+          if(!items.map(item => item.name).includes(gameTypeObject.name)) {
+            items.push({ name: gameTypeObject.name, children: [] })
           }
 
-          for(let game of bucket.game[type].children) {
-            if(!item[type].children.includes(game.name)) {
-              item[type].children.push(game.name)
-            }
+          // 把 game 推進對應 gameType
+          for(let game of gameTypeObject.children) {
+            items.find(item => item.name == gameTypeObject.name).children.push(game.name)
           }
-
-          // for(let game of bucket.game[type].children) {
-          //   game.bucket = bucket.name
-          //   item[type].children.push(game)
-          // }
         }
       }
 
+      for(let item of items) { // 清除重複項目
+        item.children = [...new Set(item.children)]
+      }
 
-
-      this.selectedParentBucketGames = item
-      return item
+      this.selectedParentBucketGames = items
+      return items
     }
   }
 }
@@ -259,31 +195,31 @@ module.exports = {
 /*
   共用常用類型
 */
-.half-block {
+/*.half-block {
   float: left;
   padding: 0 15px;
   width: 50%;
   box-sizing: border-box;
-}
+}*/
 
-.one-third {
+/*.one-third {
   float: left;
   padding: 0 15px;
   width: 33%;
   box-sizing: border-box;
-}
+}*/
 
-.one-quarter {
+/*.one-quarter {
   float: left;
   padding: 0 15px;
   width: 25%;
   box-sizing: border-box;
-}
+}*/
 
-.json-data {
+/*.json-data {
   float: left;
   width: 100%;
-}
+}*/
 
 .block {
   float: left;
